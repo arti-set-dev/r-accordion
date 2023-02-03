@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../dist/accordion.min.css">
+	<title>Accordion demo</title>
+</head>
+
+<body class="body">
+	<div class="accordion-list">
+		<div class="accordion-item">
+			<div class="accordion-content">
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis dolore numquam nisi dolorum impedit
+				exercitationem, veniam tempora, officia laborum sint odio quod enim nihil non ea deleniti natus totam. Soluta?
+			</div>
+			<button type="button" class="accordion-btn">
+				Развернуть аккордеон 1
+				<span class="arrow-icon"></span>
+			</button>
+		</div>
+		<div class="accordion-item">
+			<button type="button" class="accordion-btn">Развернуть аккордеон 2</button>
+			<div class="accordion-content">
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis dolore numquam nisi dolorum impedit
+				exercitationem, veniam tempora, officia laborum sint odio quod enim nihil non ea deleniti natus totam. Soluta?
+			</div>
+		</div>
+		<div class="accordion-item">
+			<button type="button" class="accordion-btn">Развернуть аккордеон 3</button>
+			<div class="accordion-content">
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis dolore numquam nisi dolorum impedit
+				exercitationem, veniam tempora, officia laborum sint odio quod enim nihil non ea deleniti natus totam. Soluta?
+			</div>
+		</div>
+	</div>
+	<script src="../dist/accordion.min.js"></script>
+	<script>
+		const accordionList = new Accordion('.accordion-list');
+	</script>
+</body>
+
+</html>
