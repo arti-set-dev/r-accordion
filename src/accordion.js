@@ -13,6 +13,7 @@ export default class Accordion {
         accordionContent: 'accordion-content',
         showContent: 'show',
         arrowIcon: 'arrow-icon',
+        accordionItemActive: 'accordion-item-active',
         arrrowIconActive: 'icon-active',
         btnItemActive: 'accordion-btn-active',
       }
@@ -21,7 +22,7 @@ export default class Accordion {
     this.options = Object.assign(defaultOptions, options);
     this.accordionList = document?.querySelector(selector);
     this.accordionBtnList = this.accordionList?.querySelectorAll(`.${this.options.classNames.accordionBtn}`);
-    this.accordionsContents = this.accordionList?.querySelectorAll(`.accordion-content`);
+    this.accordionsContents = this.accordionList?.querySelectorAll(`.${this.options.classNames.accordionContent}`);
     this.previusActiveAccordion = null;
     this.currentActiveAccordion = null;
 
@@ -51,6 +52,8 @@ export default class Accordion {
 
   openAccordion(btnItem, accordionContent) {
     const arrrowIcon = btnItem?.querySelector(`.${this.options.classNames.arrowIcon}`);
+    const accordionItem = btnItem?.closest(`.${this.options.classNames.accordionItem}`);
+    accordionItem?.classList.add(this.options.classNames.accordionItemActive);
     arrrowIcon?.classList.add(this.options.classNames.arrrowIconActive);
     arrrowIcon?.style.setProperty('--accordion-time', `${this.options.speed / 1000}s`);
     accordionContent?.style.setProperty('--accordion-time', `${this.options.speed / 1000}s`);
@@ -67,7 +70,9 @@ export default class Accordion {
 
   closeAccordion(btnItem, accordionContent) {
     const arrrowIcon = btnItem?.querySelector(`.${this.options.classNames.arrowIcon}`);
+    const accordionItem = btnItem?.closest(`.${this.options.classNames.accordionItem}`);
     arrrowIcon?.classList.remove(this.options.classNames.arrrowIconActive);
+    accordionItem?.classList.remove(this.options.classNames.accordionItemActive);
 
     if (accordionContent) {
       btnItem.setAttribute('aria-expanded', false);
@@ -80,13 +85,15 @@ export default class Accordion {
 
   autoCloseAccordion(accordionContent) {
     if (this.options.autoClose) {
+      const previusActiveAccordionItem = this.accordionList?.querySelector(`.${this.options.classNames.accordionItemActive}`);
       const previusActiveAccordion = this.accordionList?.querySelector(`.${this.options.classNames.showContent}`);
       const previusActiveBtn = this.accordionList?.querySelector(`.${this.options.classNames.btnItemActive}`);
       const previusActiveArrowIcon = this.accordionList?.querySelector(`.${this.options.classNames.arrrowIconActive}`);
       const currentActiveAccordion = accordionContent;
 
       if (previusActiveAccordion && currentActiveAccordion != previusActiveAccordion) {
-        previusActiveAccordion.classList.remove(this.options.classNames.showContent);
+        previusActiveAccordionItem?.classList.remove(this.options.classNames.accordionItemActive);
+        previusActiveAccordion?.classList.remove(this.options.classNames.showContent);
         previusActiveBtn?.classList.remove(this.options.classNames.btnItemActive);
         previusActiveArrowIcon?.classList.remove(this.options.classNames.arrrowIconActive);
         previusActiveAccordion.style.maxHeight = '0px';
