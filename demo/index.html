@@ -9,33 +9,47 @@
 	<title>Accordion demo</title>
 </head>
 
+<style>
+  .content {
+    max-width: 400px;
+    width: max-content;
+    padding: 40px;
+  }
+</style>
+
 <body class="body">
 	<div class="accordion-list">
-		<div class="accordion-item">
-			<div class="accordion-content">
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis dolore numquam nisi dolorum impedit
-				exercitationem, veniam tempora, officia laborum sint odio quod enim nihil non ea deleniti natus totam. Soluta?
-			</div>
-			<button type="button" class="accordion-btn">
-				Развернуть аккордеон 1
-				<span class="arrow-icon"></span>
-			</button>
-		</div>
-		<div class="accordion-item">
-			<button type="button" class="accordion-btn">Развернуть аккордеон 2</button>
-			<div class="accordion-content">
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis dolore numquam nisi dolorum impedit
-				exercitationem, veniam tempora, officia laborum sint odio quod enim nihil non ea deleniti natus totam. Soluta?
-			</div>
-		</div>
-		<div class="accordion-item">
-			<button type="button" class="accordion-btn">Развернуть аккордеон 3</button>
-			<div class="accordion-content">
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis dolore numquam nisi dolorum impedit
-				exercitationem, veniam tempora, officia laborum sint odio quod enim nihil non ea deleniti natus totam. Soluta?
-			</div>
-		</div>
-	</div>
+    <div class="accordion-item">
+      <button type="button" class="accordion-btn">Кнопка</button>
+      <div class="accordion-content collapse">
+        <div class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea possimus magnam necessitatibus cum asperiores
+          dolores nostrum ipsa, cupiditate laborum exercitationem! Deleniti dolore itaque eligendi, molestiae iste
+          provident officiis possimus nulla.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button type="button" class="accordion-btn">Кнопка</button>
+      <div class="accordion-content collapse">
+        <div class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea possimus magnam necessitatibus cum asperiores
+          dolores nostrum ipsa, cupiditate laborum exercitationem! Deleniti dolore itaque eligendi, molestiae iste
+          provident officiis possimus nulla.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button type="button" class="accordion-btn">Кнопка</button>
+      <div class="accordion-content collapse">
+        <div class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea possimus magnam necessitatibus cum asperiores
+          dolores nostrum ipsa, cupiditate laborum exercitationem! Deleniti dolore itaque eligendi, molestiae iste
+          provident officiis possimus nulla.
+        </div>
+      </div>
+    </div>
+  </div>
 	<script src="../dist/accordion.min.js"></script>
 	<script>
 		const accordionList = new Accordion('.accordion-list');

@@ -1,49 +1,64 @@
-.accordion-list {
-  max-width: 800px;
-  margin: 0 auto;
+.accordion-list.horizontal {
+  display: flex;
 }
-
+.accordion-list.horizontal .accordion-item {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.accordion-list.horizontal .accordion-content {
+  transition: opacity var(--accordion-time) ease, visibility var(--accordion-time) ease;
+}
+.accordion-list.horizontal .accordion-item:not(.active) .accordion-content {
+  opacity: 0;
+  visibility: hidden;
+}
+.accordion-list.horizontal .accordion-item:not(.active) {
+  max-width: 100px;
+}
+.accordion-list.horizontal .accordion-item.active {
+  max-width: 100%;
+}
+.accordion-item {
+  border: 1px solid black;
+  transition: border var(--accordion-time) ease, background var(--accordion-time) ease, max-width var(--accordion-time) ease;
+}
 .accordion-btn {
+  background: none;
+  border: none;
   padding: 0;
   width: 100%;
-  border: 2px solid black;
-  background-color: transparent;
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  transition: background-color var(--accordion-time) ease, color var(--accordion-time) ease;
+  transition: color var(--accordion-time) ease, background var(--accordion-time) ease;
 }
-
-.accordion-btn.accordion-btn-active {
-  background-color: green;
+.accordion-list.horizontal .accordion-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
-
-.accordion-content {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  padding: 0 20px;
-  will-change: max-height;
-  transition: will-change var(--accordion-time) ease, max-height var(--accordion-time) ease, opacity var(--accordion-time) ease;
-  box-sizing: content-box;
+.accordion-list.horizontal .accordion-btn.active::before {
+  display: none;
 }
-
-.accordion-content.show {
-  opacity: 1;
+.accordion-btn.active {
+  background-color: bisque;
 }
-
-.arrow-icon {
-  display: block;
-  width: 0;
+.accordion-content.collapsing {
   height: 0;
-  border-style: solid;
-  border-width: 10px 20px 10px 0;
-  border-color: transparent #6980fe transparent transparent;
-  transition: transform var(--accordion-time) ease, border var(--accordion-time) ease, background-color var(--accordion-time) ease;
-  pointer-events: none;
+  overflow: hidden;
+  transition: height var(--accordion-time) ease;
 }
-
-.arrow-icon.icon-active {
-  border-color: transparent blue transparent transparent;
-  transform: rotate(90deg);
+.accordion-list.horizontal .accordion-content.collapsing {
+  height: auto;
+}
+.collapse:not(.show) {
+  display: none;
+}
+.accordion-list.horizontal .collapse:not(.show) {
+  display: block;
+}
+.collapse.show {
+  display: block;
 }

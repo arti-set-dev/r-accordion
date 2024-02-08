@@ -1,6 +1,6 @@
 {
   "name": "r-accordions",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Simple JS Library for accordion",
   "main": "src/accordion.js",
   "repository": {
